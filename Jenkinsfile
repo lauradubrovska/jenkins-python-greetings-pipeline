@@ -29,7 +29,7 @@ def deployToEnv(String envName, String port) {
         sh 'python3 -m venv venv'
         sh './venv/bin/python -m pip install -r requirements.txt'
 
-        sh "pm2 start './venv/bin/python app.py' --name greetings-app-${envName} -- --port ${port}"
+        sh "pm2 start ./venv/bin/python --name greetings-app-${envName} -- app.py --port ${port}"
     }
 }
 
